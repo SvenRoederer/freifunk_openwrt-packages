@@ -202,6 +202,6 @@ endef
 endif
 
 
-LUCI_BUILD_PACKAGES := $(PKG_NAME)
+FF_BUILD_PACKAGES:=$(PKG_NAME)
 
-$(foreach pkg,$(LUCI_BUILD_PACKAGES),$(eval $(call BuildPackage,$(pkg))))
+$(foreach pkg,$(FF_BUILD_PACKAGES),$(eval $(call BuildPackage,$(pkg))))
