@@ -138,14 +138,6 @@ HTDOCS = /www
 LUA_LIBRARYDIR = /usr/lib/lua
 LUCI_LIBRARYDIR = $(LUA_LIBRARYDIR)/luci
 
-define SubstituteVersion
-	$(FIND) $(1) -type f -name '*.htm' | while read src; do \
-		$(SED) 's/<%# *\([^ ]*\)PKG_VERSION *%>/\1$(PKG_VERSION)/g' \
-		    -e 's/"\(<%= *\(media\|resource\) *%>[^"]*\.\(js\|css\)\)"/"\1?v=$(PKG_VERSION)"/g' \
-			"$$$$src"; \
-	done
-endef
-
 define Package/$(PKG_NAME)/install
 	if [ -d $(PKG_BUILD_DIR)/luasrc ]; then \
 	  $(INSTALL_DIR) $(1)$(LUCI_LIBRARYDIR); \
