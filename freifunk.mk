@@ -162,16 +162,6 @@ define Package/$(PKG_NAME)/install
 	else true; fi
 endef
 
-ifneq ($(LUCI_DEFAULTS),)
-define Package/$(PKG_NAME)/postinst
-[ -n "$${IPKG_INSTROOT}" ] || {$(foreach script,$(LUCI_DEFAULTS),
-	(. /etc/uci-defaults/$(script)) && rm -f /etc/uci-defaults/$(script))
-	exit 0
-}
-endef
-endif
-
-
 FF_BUILD_PACKAGES:=$(PKG_NAME)
 
 $(foreach pkg,$(FF_BUILD_PACKAGES),$(eval $(call BuildPackage,$(pkg))))
