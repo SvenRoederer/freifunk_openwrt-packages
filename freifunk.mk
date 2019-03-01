@@ -138,27 +138,6 @@ HTDOCS = /www
 LUA_LIBRARYDIR = /usr/lib/lua
 LUCI_LIBRARYDIR = $(LUA_LIBRARYDIR)/luci
 
-define SrcDiet
-	$(FIND) $(1) -type f -name '*.lua' | while read src; do \
-		if LUA_PATH="$(STAGING_DIR_HOSTPKG)/lib/lua/5.1/?.lua" luasrcdiet --noopt-binequiv -o "$$$$src.o" "$$$$src"; \
-		then mv "$$$$src.o" "$$$$src"; fi; \
-	done
-endef
-
-define JsMin
-	$(FIND) $(1) -type f -name '*.js' | while read src; do \
-		if jsmin < "$$$$src" > "$$$$src.o"; \
-		then mv "$$$$src.o" "$$$$src"; fi; \
-	done
-endef
-
-define CssTidy
-	$(FIND) $(1) -type f -name '*.css' | while read src; do \
-		if csstidy "$$$$src" --template=highest --remove_last_semicolon=true "$$$$src.o"; \
-		then mv "$$$$src.o" "$$$$src"; fi; \
-	done
-endef
-
 define SubstituteVersion
 	$(FIND) $(1) -type f -name '*.htm' | while read src; do \
 		$(SED) 's/<%# *\([^ ]*\)PKG_VERSION *%>/\1$(PKG_VERSION)/g' \
