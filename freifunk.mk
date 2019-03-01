@@ -11,9 +11,8 @@ PKG_NAME?=$(FF_PKGNAME)
 ##### deprecated LuCI-stuff 
 # should be remove by time ...
 
-LUCI_NAME?=$(notdir ${CURDIR})
-LUCI_TYPE?=$(word 2,$(subst -, ,$(LUCI_NAME)))
-LUCI_BASENAME?=$(patsubst luci-$(LUCI_TYPE)-%,%,$(LUCI_NAME))
+LUCI_TYPE?=$(word 2,$(subst -, ,$(FF_PKGNAME)))
+LUCI_BASENAME?=$(patsubst luci-$(LUCI_TYPE)-%,%,$(FF_PKGNAME))
 LUCI_LANGUAGES:=$(sort $(filter-out templates,$(notdir $(wildcard ${CURDIR}/po/*))))
 LUCI_DEFAULTS:=$(notdir $(wildcard ${CURDIR}/root/etc/uci-defaults/*))
 LUCI_PKGARCH?=$(if $(realpath src/Makefile),,all)
