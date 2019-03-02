@@ -105,13 +105,6 @@ define Package/$(PKG_NAME)
   $(if $(LUCI_PKGARCH),PKGARCH:=$(LUCI_PKGARCH))
 endef
 
-ifneq ($(LUCI_DESCRIPTION),)
- define Package/$(PKG_NAME)/description
-#   $(strip $(LUCI_DESCRIPTION))
-  test description
- endef
-endif
-
 define Build/Prepare
 	for d in luasrc htdocs root src; do \
 	  if [ -d ./$$$$d ]; then \
