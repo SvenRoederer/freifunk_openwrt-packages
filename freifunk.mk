@@ -107,7 +107,8 @@ endef
 
 ifneq ($(LUCI_DESCRIPTION),)
  define Package/$(PKG_NAME)/description
-   $(strip $(LUCI_DESCRIPTION))
+#   $(strip $(LUCI_DESCRIPTION))
+  test description
  endef
 endif
 
