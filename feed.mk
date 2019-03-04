@@ -17,11 +17,6 @@ LUCI_LANGUAGES:=$(sort $(filter-out templates,$(notdir $(wildcard ${CURDIR}/po/*
 LUCI_DEFAULTS:=$(notdir $(wildcard ${CURDIR}/root/etc/uci-defaults/*))
 LUCI_PKGARCH?=$(if $(realpath src/Makefile),,all)
 
-PKG_RELEASE?=1
-PKG_INSTALL:=$(if $(realpath src/Makefile),1)
-PKG_BUILD_DEPENDS += lua/host luci-base/host LUCI_CSSTIDY:csstidy/host $(LUCI_BUILD_DEPENDS)
-PKG_CONFIG_DEPENDS += CONFIG_LUCI_SRCDIET CONFIG_LUCI_JSMIN CONFIG_LUCI_CSSTIDY
-
 include $(TOPDIR)/feeds/luci/luci.mk
 
 define Package/$(PKG_NAME)
