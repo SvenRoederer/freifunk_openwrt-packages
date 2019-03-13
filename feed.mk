@@ -17,7 +17,7 @@ LUCI_LANGUAGES:=$(sort $(filter-out templates,$(notdir $(wildcard ${CURDIR}/po/*
 LUCI_DEFAULTS:=$(notdir $(wildcard ${CURDIR}/root/etc/uci-defaults/*))
 LUCI_PKGARCH?=$(if $(realpath src/Makefile),,all)
 
-include $(TOPDIR)/feeds/luci/luci.mk
+include $(TOPDIR)/feeds/luci/luci-common.mk
 
 define Package/$(PKG_NAME)
   SECTION:=luci
