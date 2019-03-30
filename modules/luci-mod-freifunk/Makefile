@@ -9,6 +9,6 @@ include $(TOPDIR)/rules.mk
 FF_TITLE:=LuCI Freifunk module
 FF_DEPENDS:=+luci-mod-admin-full +luci-lib-json +luci-lib-ipkg +freifunk-firewall +freifunk-common
 
-include ../../feed.mk 
+include ../../feed.mk
 
 #$(eval $(call BuildPackage,luci-mod-freifunk))
