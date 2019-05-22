@@ -14,7 +14,7 @@ else
 $(error found multiple luci.mk files in the feeds)
 endif
 else
-$(info found luci.mk at $(LUCIMKFILE))
+#$(info found luci.mk at $(LUCIMKFILE))
 endif
 
 include $(LUCIMKFILE)
