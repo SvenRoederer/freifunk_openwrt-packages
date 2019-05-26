@@ -125,3 +125,6 @@ config 'defaults' 'wifi_iface_80211s'
 	option 'mesh_id' 'Mesh-Freifunk'
 	option 'mesh_fwding' '0'
 
+config 'settings' 'luci'
+	option 'redirect_landingpage' 'admin/freifunk/assistent'
+
